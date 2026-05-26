@@ -1,0 +1,58 @@
+# ─── シナリオテンプレート (v4.0) ───
+# 対応する reference ファイルの情報を使って以下のプレースホルダを埋める:
+#   {output_name}  : 出力ファイル名（例: demo_a_pattern1, kyouden_demo）
+#   {base_url}     : アプリの URL（例: http://localhost:8000）
+#   {timeout}      : タイムアウト秒数 ※数値で置換
+#
+# v4.0 新設定:
+#   caption_mode   : "js"(default) or "ass"
+#   health_check   : true(default) or false
+#   init_bg        : 録画開始時の背景色（アプリに合わせる）
+#
+# caption: コアの場面（導入・結果確認・完了）のみに付ける。業務/視聴者目線で書く。
+# capture: true をデモの要所に付けてスクリーンショットを自動保存。
+
+config:
+  base_url: "{base_url}"
+  width: 1280
+  height: 720
+  output_name: "{output_name}"
+  timeout: {timeout}
+  caption_min_duration: 3.0
+  caption_mode: "js"
+  health_check: true
+  # init_bg: "#1a1a2e"     # 暗い背景のアプリ向け（デフォルト）
+  # init_bg: "#f8f9fa"     # 明るい背景のアプリ向け
+
+steps:
+  # ══ 導入 ══
+  - action: goto
+    url: /
+    caption: "{intro_caption}"
+    capture: true
+    pause_after: 3.0
+
+  # ══ 操作ステップ ══
+  # アプリに応じて以下のアクションを組み合わせる:
+  #
+  # --- demo-app3 向け ---
+  #   click (タブ選択・サンプル選択・実行ボタン)
+  #   wait_for_hitl + approve (HITL ループ)
+  #   wait_for_complete
+  #
+  # --- キョウデン向け ---
+  #   upload (Excelアップロード)
+  #   wait_for_url (自動遷移待ち)
+  #   scroll_to + highlight (差分テーブル・ログの見せ方)
+  #   click (承認・差戻し)
+  #   fill (差戻しコメント入力)
+  #
+  # --- 汎用 ---
+  #   goto, click, fill, upload, scroll_to, highlight,
+  #   wait_for_url, pause, screenshot
+
+  # ══ 完了 ══
+  - action: pause
+    duration: 2.0
+    caption: "{outro_caption}"
+    capture: true

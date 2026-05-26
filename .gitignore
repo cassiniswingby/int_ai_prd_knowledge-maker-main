@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Knowledge Maker specific
+input/*
+!input/.gitkeep
+
+# Fetcher data（大容量PDFおよびCookieはGit管理外）
+data/**/pdfs/
+data/**/quality_check/
+data/**/*_archive/
+data/.onenote_cookies.json
+data/.pa_cookies.json
+
+# 処理結果フォルダ（作業フォルダ・成果物フォルダ）
+pre-knowledge/
+knowledge/
+evacuation-pre-knowledge/
+evacuation-knowledge/
+old
+old_about_knowledge/
+old_about_training/
+tmp_training/
+.cursor-openai
+tmp_training/
+.old/
+!old/
+data/
+chatbot-onenote-preprocess/
+.session
+20260307_onenote/
+onenote_mapping.json
+_manifest_prev.json
+.cursor/projects/
+.cursor/logs/
+.cursor/extensions/
+.cursor/User/
+tests/

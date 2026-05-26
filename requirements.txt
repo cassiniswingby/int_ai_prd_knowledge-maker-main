@@ -1,0 +1,37 @@
+# Knowledge Maker - Required dependencies
+# =============================================
+
+# Browser automation (OneNote PDF fetcher)
+playwright>=1.40.0
+
+# PDF processing
+pdfplumber>=0.10.0
+PyPDF2>=3.0.0
+PyMuPDF>=1.23.0  # fitz - PDF page-level processing, image extraction
+
+# Excel processing
+openpyxl>=3.1.0
+xlrd>=2.0.1
+
+# Word processing
+python-docx>=1.0.0
+
+# PowerPoint processing
+python-pptx>=0.6.0
+
+# CSV processing
+pandas>=2.0.0
+
+# Image processing
+Pillow>=10.0.0
+
+# AI / OpenAI
+openai>=1.0.0
+
+# AWS Bedrock (Converse API への直接 HTTP リクエストに使用)
+requests>=2.31.0
+
+# Utilities
+psutil>=5.9.0  # Memory monitoring
+python-dotenv>=1.0.0  # .env file loading
+numpy>=1.24.0  # Embedding similarity calculation
